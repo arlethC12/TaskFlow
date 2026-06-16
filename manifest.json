@@ -1,0 +1,33 @@
+{
+  "name": "TaskFlow",
+  "short_name": "TaskFlow",
+  "description": "Organiza tus tareas diarias de forma moderna y eficiente",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1e2937",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot1.png",
+      "sizes": "744x608",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Vista principal de TaskFlow"
+    }
+  ]
+}

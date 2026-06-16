@@ -167,11 +167,23 @@ body.dark .task-list li input[type="checkbox"] {
     accent-color: #818cf8;
 }
 
-.task-list span {
+.task-list span,
+.task-content {
     flex: 1;
     min-width: 0;
     word-break: break-word;
     overflow-wrap: break-word;
+}
+
+.task-content input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
 }
 
 .completed span {

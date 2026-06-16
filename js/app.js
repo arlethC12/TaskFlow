@@ -146,14 +146,23 @@ function createTaskElement(task) {
     li.draggable = true;
 
     li.innerHTML = `
-        <input type="checkbox" ${task.completed ? "checked" : ""}>
-        <span class="${task.completed ? "completed" : ""}">${task.text}</span>
+    <input type="checkbox" ${task.completed ? "checked" : ""}>
+
+    <span class="${task.completed ? "completed" : ""}">
+        ${task.text}
+    </span>
+
+    <div class="task-actions">
         <button class="edit-btn">
-            <i data-lucide="edit-3" class="w-4 h-4"></i> Editar
+            <i data-lucide="edit-3"></i>
+            Editar
         </button>
+
         <button class="delete-btn">
-            <i data-lucide="trash-2" class="w-4 h-4"></i> Eliminar
+            <i data-lucide="trash-2"></i>
+            Eliminar
         </button>
+    </div>
     `;
 
     const checkbox = li.querySelector("input[type='checkbox']");

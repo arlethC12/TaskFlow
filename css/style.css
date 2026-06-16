@@ -139,6 +139,9 @@ body.dark .task-input input:focus {
     opacity: 0;
     transform: translateY(20px);
     animation: taskPop 0.4s forwards;
+    flex-wrap: wrap;
+    cursor: grab;
+    user-select: none;
 }
 
 body.dark .task-list li {
@@ -166,7 +169,9 @@ body.dark .task-list li input[type="checkbox"] {
 
 .task-list span {
     flex: 1;
-    font-size: 1.1rem;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .completed span {
@@ -258,12 +263,89 @@ body.dark .stats span {
     color: #a5b4fc;
 }
 
-/* Responsive */
+/* ====================== RESPONSIVE ====================== */
 @media (max-width: 480px) {
-    .container { padding: 25px 20px; }
-    header h1 { font-size: 2.3rem; }
-    .task-input { flex-direction: column; }
-    .task-input button { padding: 16px 20px; }
+
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input {
+        width: 100%;
+    }
+
+    .task-input button {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .task-list li {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .task-list span {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .filters {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .clear-completed {
+        width: 100%;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .stats p {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .stats span {
+        font-size: 1.6rem;
+    }
 }
 /* Filtros */
 .filters {
@@ -345,4 +427,85 @@ body.dark .filter-btn {
 .task-list li.drag-over {
     border-top: 3px solid #667eea;
     margin-top: 8px;
+}
+
+/* ================================= */
+/* FIX ANDROID / PWA */
+/* ================================= */
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.task-list span {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* MÓVILES */
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+        margin-top: 15px;
+    }
+
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input button {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .task-actions {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .stats p {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .filter-btn {
+        flex: 1;
+    }
+
+    .clear-completed {
+        width: 100%;
+    }
 }

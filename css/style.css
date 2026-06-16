@@ -509,3 +509,55 @@ body.dark .filter-btn {
         width: 100%;
     }
 }
+@media (max-width: 480px) {
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input button {
+        width: 100%;
+    }
+}
+/* ================================= */
+/* MOBILE FIX FINAL */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .task-list li {
+        align-items: flex-start;
+    }
+
+    .task-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .task-content span,
+    .task-list span {
+        display: block;
+        width: 100%;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .task-actions {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}

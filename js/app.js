@@ -148,9 +148,11 @@ function createTaskElement(task) {
     li.innerHTML = `
     <input type="checkbox" ${task.completed ? "checked" : ""}>
 
-    <span class="${task.completed ? "completed" : ""}">
-        ${task.text}
-    </span>
+    <div class="task-content">
+        <span class="${task.completed ? "completed" : ""}">
+            ${task.text}
+        </span>
+    </div>
 
     <div class="task-actions">
         <button class="edit-btn">
@@ -163,10 +165,10 @@ function createTaskElement(task) {
             Eliminar
         </button>
     </div>
-    `;
+`;
 
     const checkbox = li.querySelector("input[type='checkbox']");
-    const taskSpan = li.querySelector("span");
+    const taskSpan = li.querySelector(".task-content span");
 
     checkbox.addEventListener("change", () => {
         task.completed = checkbox.checked;

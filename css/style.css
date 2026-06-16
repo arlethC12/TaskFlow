@@ -264,22 +264,14 @@ body.dark .stats span {
 }
 
 /* ====================== RESPONSIVE ====================== */
-@media (max-width: 480px) {
-
-    body {
-        padding: 10px;
-        align-items: flex-start;
-    }
-
+@media (max-width: 768px) {
     .container {
-        width: 100%;
-        padding: 20px 15px;
-        border-radius: 20px;
-        margin-top: 20px;
+        max-width: 640px;
+        padding: 32px 24px;
     }
 
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 
     header p {
@@ -287,64 +279,94 @@ body.dark .stats span {
     }
 
     .task-input {
+        flex-wrap: wrap;
+    }
+
+    .task-actions {
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-end;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .stats p {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: calc(env(safe-area-inset-top, 0px) + 10px) calc(env(safe-area-inset-right, 0px) + 10px) calc(env(safe-area-inset-bottom, 0px) + 10px) calc(env(safe-area-inset-left, 0px) + 10px);
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px 14px;
+        margin-top: 14px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.98rem;
+    }
+
+    .task-input {
         flex-direction: column;
     }
 
-    .task-input input {
+    .task-input input,
+    .task-input button {
         width: 100%;
     }
 
     .task-input button {
-        width: 100%;
-        padding: 16px;
+        padding: 14px 16px;
     }
 
     .task-list li {
-        gap: 12px;
+        gap: 10px;
         padding: 15px;
     }
 
-    .task-list span {
-        width: 100%;
-        font-size: 1rem;
+    .task-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .edit-btn,
     .delete-btn {
-        flex: 1;
-        min-width: 120px;
+        width: 100%;
         justify-content: center;
         padding: 10px;
-        font-size: 0.85rem;
-    }
-
-    .filters {
-        gap: 10px;
-    }
-
-    .filter-btn {
-        flex: 1;
-        min-width: 120px;
-    }
-
-    .clear-completed {
-        width: 100%;
+        font-size: 0.9rem;
     }
 
     .stats {
         flex-direction: column;
-        gap: 15px;
         text-align: center;
     }
 
     .stats p {
-        display: flex;
+        width: 100%;
         justify-content: space-between;
-        align-items: center;
     }
 
     .stats span {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+    }
+
+    .filter-btn,
+    .clear-completed {
+        width: 100%;
     }
 }
 /* Filtros */
@@ -453,111 +475,3 @@ body.dark .filter-btn {
     overflow-wrap: break-word;
 }
 
-/* MÓVILES */
-@media (max-width: 480px) {
-
-    body {
-        padding: 10px;
-        align-items: flex-start;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px 15px;
-        margin-top: 15px;
-    }
-
-    .task-input {
-        flex-direction: column;
-    }
-
-    .task-input button {
-        width: 100%;
-        padding: 14px;
-    }
-
-    .task-actions {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .edit-btn,
-    .delete-btn {
-        flex: 1;
-        justify-content: center;
-        padding: 10px;
-        font-size: 0.85rem;
-    }
-
-    .stats {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-
-    .stats p {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .filter-btn {
-        flex: 1;
-    }
-
-    .clear-completed {
-        width: 100%;
-    }
-}
-@media (max-width: 480px) {
-    .task-input {
-        flex-direction: column;
-    }
-
-    .task-input button {
-        width: 100%;
-    }
-}
-/* ================================= */
-/* MOBILE FIX FINAL */
-/* ================================= */
-
-@media (max-width: 768px) {
-
-    .task-list li {
-        align-items: flex-start;
-    }
-
-    .task-content {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .task-content span,
-    .task-list span {
-        display: block;
-        width: 100%;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .task-actions {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-        margin-left: 0;
-    }
-
-    .edit-btn,
-    .delete-btn {
-        flex: 1;
-        justify-content: center;
-    }
-
-    .stats {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-}

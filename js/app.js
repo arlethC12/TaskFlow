@@ -187,9 +187,22 @@ function createTaskElement(task) {
         input.value = originalText;
         input.style.width = "100%";
 
+        const contentWrapper = li.querySelector('.task-content');
+        contentWrapper.classList.add('editing');
         taskSpan.replaceWith(input);
         input.focus();
         input.select();
+
+        const cleanup = () => {
+            input.removeEventListener("blur", onBlur);
+            input.removeEventListener("keydown", onKeydown);
+            contentWrapper.classList.remove('editing');
+        };
+
+        const cancelEdit = () => {
+            input.replaceWith(taskSpan);
+            cleanup();
+        };
 
         const saveEdit = () => {
             const newText = input.value.trim();
@@ -198,14 +211,18 @@ function createTaskElement(task) {
                 taskSpan.textContent = newText;
             }
             input.replaceWith(taskSpan);
+            cleanup();
             saveTasks();
         };
 
-        input.addEventListener("blur", saveEdit);
-        input.addEventListener("keypress", e => {
+        const onBlur = () => saveEdit();
+        const onKeydown = e => {
             if (e.key === "Enter") saveEdit();
-            if (e.key === "Escape") input.replaceWith(taskSpan);
-        });
+            if (e.key === "Escape") cancelEdit();
+        };
+
+        input.addEventListener("blur", onBlur);
+        input.addEventListener("keydown", onKeydown);
     });
 
     // Eliminar con animación

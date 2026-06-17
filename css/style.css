@@ -128,10 +128,11 @@ body.dark .task-input input:focus {
 
 .task-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
     padding: 18px 20px;
     margin-bottom: 12px;
+    width: 100%;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
@@ -169,7 +170,7 @@ body.dark .task-list li input[type="checkbox"] {
 
 .task-list span,
 .task-content {
-    flex: 1 1 100%;
+    flex: 1 1 auto;
     min-width: 0;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -186,16 +187,38 @@ body.dark .task-list li input[type="checkbox"] {
     padding: 10px 14px;
     border-radius: 12px;
     border: 2px solid #e2e8f0;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    box-sizing: border-box;
+        background: #f8fafc;
+        color: inherit;
+        font: inherit;
+        box-sizing: border-box;
+    }
+
+body.dark .task-content input {
+    background: #334155;
+    border-color: #475569;
 }
 
 .completed span {
     text-decoration: line-through;
     color: #94a3b8;
     opacity: 0.9;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.task-actions button {
+    min-width: 0;
+    flex: 0 1 auto;
+    width: auto;
+    padding: 10px 14px;
 }
 
 /* Botones Editar y Eliminar */
@@ -211,12 +234,7 @@ body.dark .task-list li input[type="checkbox"] {
     gap: 6px;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-}
-
-/* Botón Editar - Azul suave */
-.edit-btn {
-    background: #4f46e5;           /* Indigo */
-    color: white;
+    justify-content: center;
 }
 
 .edit-btn:hover {
@@ -319,7 +337,7 @@ body.dark .stats span {
 
     .task-actions button {
         flex: 1 1 calc(50% - 5px);
-        min-width: 140px;
+        min-width: 0;
     }
 
     .stats {
@@ -329,6 +347,25 @@ body.dark .stats span {
 
     .stats p {
         flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .task-list li {
+        padding: 14px 16px;
+    }
+
+    .task-actions {
+        gap: 8px;
+    }
+
+    .task-actions button {
+        flex: 1 1 100%;
+    }
+
+    .filter-btn,
+    .clear-completed {
+        flex: 1 1 100%;
     }
 }
 
@@ -382,6 +419,7 @@ body.dark .stats span {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
+        margin-left: 0;
     }
 
     .task-actions button,
@@ -392,11 +430,16 @@ body.dark .stats span {
         justify-content: center;
         padding: 12px;
         font-size: 0.95rem;
+        flex: 1 1 auto;
     }
 
     .task-content input {
         width: 100%;
         min-width: 0;
+    }
+
+    .task-actions {
+        width: 100%;
     }
 
     .stats {
@@ -418,6 +461,20 @@ body.dark .stats span {
         width: 100%;
     }
 }
+
+/* Mejorar la visibilidad del campo al editar */
+.task-content.editing input {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+    background: #eff6ff;
+}
+
+body.dark .task-content.editing input {
+    background: #1f2937;
+    border-color: #818cf8;
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.18);
+}
+
 /* Filtros */
 .filters {
     display: flex;
@@ -428,22 +485,15 @@ body.dark .stats span {
 }
 
 .filter-btn {
-    padding: 10px 20px;
-    border: 2px solid #e2e8f0;
-    background: white;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-body.dark .filter-btn {
-    background: #334155;
-    border-color: #475569;
-    color: #e2e8f0;
-}
-
-.filter-btn.active {
+        padding: 10px 18px;
+        border: 2px solid #e2e8f0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        min-width: 0;
+        flex: 1 1 auto;
     background: #667eea;
     color: white;
     border-color: #667eea;
